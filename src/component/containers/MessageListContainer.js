@@ -4,7 +4,7 @@ import MessageList from "../MessageList";
 const mapStateToProps = (state) => {
     return(
         {
-            messages: state.messages.body
+            messages: state.messages.body,
         }
     )
 }
