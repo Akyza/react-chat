@@ -1,24 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {getMovies} from './exercice/apiFilm';
+import Chat from './component/Chat';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+//import Login from './component/Login';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Provider store={store}>
+      <Router>
+        <div>
+          <ul>
+            <li link to="/chat">Chat</li>
+          </ul>
+        </div>
+        <Route path="/chat" exact component={Chat}/>
+      </Router>
+      <Chat/>
+    </Provider> 
     </div>
   );
 }
